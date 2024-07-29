@@ -10,6 +10,6 @@ COPY package*.json tsconfig.json ./
 RUN npm i
 COPY . .
 
-EXPOSE 3000
+EXPOSE 8080
 CMD ["npm","start"]
 
