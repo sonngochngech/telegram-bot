@@ -8,8 +8,6 @@ WORKDIR /app
 COPY package*.json tsconfig.json ./
 RUN npm i
 COPY . .
-RUN npm run tsc -b
-
 EXPOSE 3000
-CMD ["npm","run","dev"]
+CMD ["npm","start"]
 
