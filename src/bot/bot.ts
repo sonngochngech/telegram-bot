@@ -72,7 +72,7 @@ bot.command('compare_report',async(ctx)=>{
 })
 
 bot.command('help',async(ctx) => {
-  ctx.reply('Help message');
+  await  ctx.reply('Help message');
 });
 
 bot.on('message:text',async (ctx)=>{

@@ -10,5 +10,4 @@ export const COMMANDS: Commands[] = [
     { command: 'mychannels', description: 'get channel list' },
     { command: 'compare_report', description: 'Compare two reports from a specific channel' },
     { command: 'get_report', description: 'get a report in a specific day' },
-    { command: 'cancel', description: 'Cancel converstaion' },
 ];

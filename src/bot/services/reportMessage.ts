@@ -41,7 +41,7 @@ const getReports = async (conversations: ConverstaionContext, ctx: BotContext) =
     }
     do {
         const dateList: string[] = [];
-        await ctx.reply("Nhập ngày hoặc /cancel để exit");
+        await ctx.reply("Nhập ngày hoặc cancel để exit");
         await ctx.reply("ngày: ");
         let { message } = await conversations.wait();
         if (isCancel(message?.text)) {
@@ -73,7 +73,7 @@ const compareReport = async (conversations: ConverstaionContext, ctx: BotContext
         return;
     }
     do {
-        await ctx.reply("Nhập ngày hoặc /cancel để thoát")
+        await ctx.reply("Nhập ngày hoặc cancel để thoát")
         const dateList: string[] = [];
         await ctx.reply("ngày 1 và ngày 2(ví dụ 23/07 22/07) :  ");
         let {message} = await conversations.wait();
@@ -143,7 +143,7 @@ const checkDate = async (date: string | null | undefined, chatId: number): Promi
 
 
 export const isCancel = (messsage: string | null | undefined) => {
-    if (messsage === '/cancel') {
+    if (messsage === 'cancel') {
         return true;
     }
     return false;
