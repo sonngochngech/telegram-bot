@@ -2,9 +2,21 @@
 import { runBot } from './bot';
 import * as dotenv from 'dotenv';
 import { connectDB } from './mongodb';
+import express, { Express, Request, Response } from "express";
 
 
 dotenv.config();
+
+const app=express();
+const port = process.env.PORT || 3000;
+
+app.get("/", (req: Request, res: Response) => {
+    res.send("Express + TypeScript Server");
+  });
+
+app.listen(port, () => {
+console.log(`[server]: Server is running at port ${port}`);
+});
 
 
 const runApp = async () => {
@@ -23,3 +35,4 @@ const runApp = async () => {
 };
 
 runApp();
+
