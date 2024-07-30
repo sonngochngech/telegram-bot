@@ -4,13 +4,13 @@ USER root
 
 WORKDIR /app
 
-
+COPY ./dist ./
 COPY package*.json tsconfig.json ./
 
 RUN npm i
 COPY . .
 
 EXPOSE 8080
-CMD ["npm","start"]
+CMD ["npm","run","dev"]
 
 

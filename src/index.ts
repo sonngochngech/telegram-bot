@@ -2,6 +2,7 @@
 import { runBot } from './bot';
 import * as dotenv from 'dotenv';
 import { connectDB } from './mongodb';
+
 import express, { Express, Request, Response } from "express";
 
 
@@ -36,3 +37,4 @@ const runApp = async () => {
 
 runApp();
 
+export default app;
