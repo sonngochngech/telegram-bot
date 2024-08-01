@@ -1,40 +1,24 @@
 
-import { runBot } from './bot';
+import { bot } from './bot';
 import * as dotenv from 'dotenv';
 import { connectDB } from './mongodb';
+import { webhookCallback } from "grammy";
+import express from "express";
 
-import express, { Express, Request, Response } from "express";
 
 
 dotenv.config();
+const domain = String(process.env.DOMAIN);
+const secretPath = String(process.env.BOT_TOKEN);
+const app = express();
+connectDB();
 
-const app=express();
-const port = process.env.PORT || 8080;
+app.use(express.json());
+app.use(`/${secretPath}`, webhookCallback(bot, "express"));
 
-app.get("/", (req: Request, res: Response) => {
-    res.send("Express + TypeScript Server");
-  });
-
-app.listen(port, () => {
-console.log(`[server]: Server is running at port ${port}`);
+app.listen(Number(process.env.PORT), async () => {
+  // Make sure it is `https` not `http`!
+  await bot.api.setWebhook(`https://${domain}/${secretPath}`);
 });
-
-
-const runApp = async () => {
-    try {
-        await connectDB()
-            .then(() => {
-                runBot();
-            })
-            .catch((err:any) => {
-              console.log(err);
-            }
-            )
-    } catch (error: any) {
-        console.log(error);
-    }
-};
-
-runApp();
 
 export default app;

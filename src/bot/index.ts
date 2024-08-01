@@ -1,11 +1,14 @@
-import { run } from '@grammyjs/runner';
-import { bot } from './bot';
+// import { run } from '@grammyjs/runner';
+// import { bot } from './bot';
 
-const runBot = () => {
-    if (!bot.isInited()) {
-        console.log('BOT NOT INITIATED');
-        run(bot);
-    }
-};
+import { bot } from "./bot";
 
-export { runBot };
+// const runBot = () => {
+//     if (!bot.isInited()) {
+//         console.log('BOT NOT INITIATED');
+//         run(bot);
+//     }
+// };
+
+// export { runBot };
+export {bot}
